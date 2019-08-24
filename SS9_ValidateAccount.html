@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validate Account</title>
+</head>
+<body>
+    <script>
+        function validateAccount(accountName)
+        {
+            let regEx= /^[_0-9a-z]{6,}$/;
+            return regEx.test(accountName);
+        }
+
+        
+        function testAccounts(arr) {
+            let length=arr.length;
+            let count=0;
+            for(let i=0; i < length; i++){
+                if(validateAccount(arr[i])){
+                    count++;
+                }
+            }
+            if(length==count){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        ///////////////
+
+        let validAccounts=['123abc','abc123','123456','abcdefg'];
+        let invalidAccounts=['.@','12345','1234','abcde'];
+        if(testAccounts(validAccounts)){
+            alert("Tất cả đều hợp lệ")
+        }
+        if(!testAccounts(invalidAccounts)){
+            alert("Có phần tử không phải chuỗi hợp lệ");
+        }
+
+
+
+    </script>
+
+</body>
+</html>
